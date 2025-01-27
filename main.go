@@ -3,22 +3,9 @@ package main
 import (
 	"fmt"
 	"go/crypto/api"
-	"sync"
 )
 
-func main() {
-	currencies := []string {"BTC", "ETH", "USDC"}
-
-	var wg sync.WaitGroup
-	for _, currency := range currencies {
-		wg.Add(1)
-		go func() {
-			getCurrencyRate(currency)
-			wg.Done()
-		}()
-	}
-	wg.Wait()
-}
+func main() {}
 
 func getCurrencyRate(currency string) {
 	rate, err := api.GetRate(currency)
